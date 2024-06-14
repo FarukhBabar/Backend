@@ -18,6 +18,10 @@ app.use("/api/v1/auth" , router)
 app.use("/api/v1/data" , Getdata)
 app.use('/uploads', express.static('uploads'))
 
+app.get("/" ,(req,res)=>{
+  res.send("hello")
+} )
+
 app.get("/singalepage/:id", async (req, res) => {
     let result = await FreeSchema.findOne({_id: req.params.id})
     return res.send(result)
