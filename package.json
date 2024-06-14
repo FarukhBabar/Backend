@@ -6,7 +6,8 @@
   "type": "module",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
-    "start": "nodemon app.js"
+    "start": "node app.js" ,
+    "heroku-postbuild":"NPM_CONFIG_PRODUCTION=false npm install --prefix kjkj && npm run build --prefix kjkj"
   },
   "keywords": [],
   "author": "",

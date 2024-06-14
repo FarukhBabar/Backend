@@ -7,6 +7,7 @@ import Getdata from "./Routers/Gettingdata.js"
 import FreeSchema from './config/Sundayschema.js'
 import SmokinSchema from './config/Smokingess.js'
 import userrouter from './Routers/user.routes.js'
+
 const app = express()
 app.use(express.json())
 DbConnection()
@@ -31,7 +32,14 @@ app.get("/singalepage/:id", async (req, res) => {
     return res.send(result)
   })
 
+  const port = process.env.PORT || 8001;
 
-app.listen(8001 , ()=>{
-    console.log("app is running on port 8001")
+  if(process.env.NODE_ENV == "production"){
+ app.use(express.static("kjkj/build"))
+  }
+
+
+
+  app.listen(port , ()=>{
+    console.log("app is running on port ")
 })
